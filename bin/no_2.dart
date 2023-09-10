@@ -18,6 +18,8 @@ enum Stone {
 List<int> reversi(String S) {
   // LとR以外の文字が含まれている場合
   if (S.replaceAll('L', '').replaceAll('R', '').isNotEmpty) throw ArgumentError('LとR以外の文字が含まれています');
+  // 制約1以上1000以下の文字列であること
+  if (S.isEmpty || 1000 < S.length) throw ArgumentError('1以上1000以下の文字列を入力してください');
 
   // 碁盤
   List<Stone> stoneLine = [Stone.black, Stone.white];

@@ -12,4 +12,14 @@ void main() {
     expect(() => no2.reversi('LLRLRLRM'), throwsArgumentError);
     expect(() => no2.reversi('ABab'), throwsArgumentError);
   });
+
+  test('制約内', () {
+    expect(no2.reversi('L'), [2, 1]);
+    expect(no2.reversi('L' * 1000), [0, 1002]);
+  });
+
+  test('制約外', () {
+    expect(() => no2.reversi(''), throwsArgumentError);
+    expect(() => no2.reversi('L' * 1001), throwsArgumentError);
+  });
 }
