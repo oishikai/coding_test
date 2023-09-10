@@ -12,7 +12,7 @@ void main() {
 }
 
 String findMinPermutation(String input) {
-  if (int.tryParse(input) == null) throw ArgumentError('数字以外の文字が含まれています');
+  if (RegExp(r'[^0-9]').hasMatch(input)) throw ArgumentError('数字以外の文字が含まれています');
   List<int> digits = input.split('').map(int.parse).toList();
   // 昇順にソート
   digits.sort();
