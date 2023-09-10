@@ -12,6 +12,8 @@ void main() {
 }
 
 String findMinPermutation(String input) {
+  //制約
+  if (input.isEmpty || 100 < input.length) throw ArgumentError('1以上100以下の整数を入力してください');
   if (RegExp(r'[^0-9]').hasMatch(input)) throw ArgumentError('数字以外の文字が含まれています');
   List<int> digits = input.split('').map(int.parse).toList();
   // 昇順にソート
