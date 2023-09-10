@@ -48,7 +48,7 @@ List<int> reversi(String S) {
       if (stoneLine[0] != turn) stoneLine = turnOver(turn, stoneLine.length);
       stoneLine.insert(0, turn);
     } else if (hand == 'R') {
-      // 左隣(打つ前の右端)が異なる色の場合、全てturnと同じ色にひっくり返し、turnを先頭に加える
+      // 左隣(打つ前の右端)が異なる色の場合、全てturnと同じ色にひっくり返し、turnを末尾に加える
       if (stoneLine[stoneLine.length - 1] != turn) stoneLine = turnOver(turn, stoneLine.length);
       stoneLine.add(turn);
     }
