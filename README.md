@@ -1,3 +1,6 @@
+## 環境
+Dart SDK version: 3.0.6 (stable) (Tue Jul 11 18:49:07 2023 +0000) on "macos_arm64"
+
 ## コーディングテスト解答
 
 1問目 : bin/no_1.dart
@@ -21,6 +24,12 @@ dart bin/no_3.dart
 
 ### テストコード実行
 
+#### Get dependencies
+```
+dart pub get
+```
+
+### Test
 ```
 dart test/no_1_test.dart
 ```
