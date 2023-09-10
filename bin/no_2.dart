@@ -27,17 +27,13 @@ List<int> reversi(String S) {
     Stone turn;
 
     // 偶数番目の手番は黒、奇数番目の手番は白
-    if (i.isEven) {
-      turn = Stone.black;
-    } else {
-      turn = Stone.white;
-    }
+    turn = i.isEven ? Stone.black : Stone.white;
 
-    // 盤上の石がすべて同じ色の場合、先頭または末尾に石を追加して次の手番へ
+    // 盤上の石がすべてturnと異なる色の場合、先頭または末尾に石を追加して次の手番へ
     if (countStones(stoneLine, turn) == 0) {
       if (hand == 'L') {
         stoneLine.insert(0, turn);
-      } else if (hand == 'R') {
+      } else {
         stoneLine.add(turn);
       }
       continue;
@@ -47,7 +43,7 @@ List<int> reversi(String S) {
       // 右隣(打つ前の左端)が異なる色の場合、全てturnと同じ色にひっくり返し、turnを先頭に加える
       if (stoneLine[0] != turn) stoneLine = turnOver(turn, stoneLine.length);
       stoneLine.insert(0, turn);
-    } else if (hand == 'R') {
+    } else {
       // 左隣(打つ前の右端)が異なる色の場合、全てturnと同じ色にひっくり返し、turnを末尾に加える
       if (stoneLine[stoneLine.length - 1] != turn) stoneLine = turnOver(turn, stoneLine.length);
       stoneLine.add(turn);
