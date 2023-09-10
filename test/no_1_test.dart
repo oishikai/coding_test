@@ -12,19 +12,13 @@ void main() {
     expect(() => no1.calculateMinRolls('1A'), throwsArgumentError);
   });
 
-  test('下限:2', () {
+  test('制約内', () {
     expect(no1.calculateMinRolls('2'), 1);
-  });
-
-  test('2より小さい', () {
-    expect(() => no1.calculateMinRolls('1'), throwsArgumentError);
-  });
-
-  test('上限:100000', () {
     expect(no1.calculateMinRolls('100000'), 16667);
   });
 
-  test('100000より大きい', () {
+  test('制約外', () {
+    expect(() => no1.calculateMinRolls('1'), throwsArgumentError);
     expect(() => no1.calculateMinRolls('100001'), throwsArgumentError);
   });
 }
